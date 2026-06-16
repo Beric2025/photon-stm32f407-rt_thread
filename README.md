@@ -189,8 +189,28 @@ scons --target=vsc         # Export VS Code config (includes include paths)
 
 ### Keil MDK
 
-The Keil project file is kept for Windows debugging:
-[keil/Photon.uvprojx](keil/Photon.uvprojx)
+The Keil project is maintained under `keil/`:
+
+| File | Purpose |
+|---|---|
+| `keil/Photon.uvprojx` | **Main project** — open this in Keil MDK |
+| `keil/template.uvprojx` | MDK5 template for regeneration |
+| `keil/project.uvprojx` | Auto-generated reference (by `scons --target=mdk5`) |
+| `keil/stubs/` | POSIX stub headers for ARM Compiler |
+
+**Regenerate when `rtconfig.h` changes:**
+
+```bash
+cp keil/template.uvprojx .       # template must be at project root
+scons --target=mdk5              # generate project.uvprojx with updated config
+mv project.uvprojx keil/         # move into keil/
+# then diff keil/project.uvprojx against keil/Photon.uvprojx
+# and apply relevant changes (include paths, macros, new sources)
+```
+
+> **Note**: The auto-generated project only covers RT-Thread kernel components.
+> Project-specific sources (`port/`, `drivers/`, `app/`, `interface/`) and
+> include paths are maintained manually in `keil/Photon.uvprojx`.
 
 ## Porting to a New MCU
 
