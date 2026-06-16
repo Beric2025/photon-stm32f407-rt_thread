@@ -1,0 +1,77 @@
+# ============================================
+# IDE / Editor
+# ============================================
+.vscode/
+.idea/
+.claude/
+*.code-workspace
+CLAUDE.md
+
+# ============================================
+# OS generated files
+# ============================================
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# ============================================
+# STM32CubeMX generated (do not track)
+# ============================================
+.mxproject
+*.ioc
+
+# ============================================
+# SCons / RT-Thread build artifacts
+# ============================================
+build/
+.sconsign.dblite
+__pycache__/
+.config
+.config.old
+
+# ============================================
+# Object & library files
+# ============================================
+*.o
+*.obj
+*.a
+*.lib
+*.elf
+*.out
+*.hex
+*.bin
+*.map
+*.d
+*.dep
+
+# ============================================
+# Keil artifacts
+# ============================================
+keil/DebugConfig/
+keil/Object/
+keil/RTE/
+keil/*.uvguix.*
+keil/*.uvoptx
+keil/*.Administrator
+keil/*.lst
+keil/*.ini
+keil/*.crf
+keil/*.d
+keil/*.o
+keil/*.axf
+keil/*.iex
+keil/*.htm
+keil/*.build_log.htm
+keil/*.lnp
+keil/*.tra
+keil/*.scvd
+keil/JLinkLog.txt
+keil/*.jlink
+
+# ============================================
+# Misc
+# ============================================
+*.pdf
+Version

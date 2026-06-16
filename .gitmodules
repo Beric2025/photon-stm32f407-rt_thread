@@ -1,0 +1,6 @@
+[submodule "third_party/rt-thread"]
+	path = third_party/rt-thread
+	url = https://github.com/RT-Thread/rt-thread.git
+[submodule "third_party/lwIP"]
+	path = third_party/lwIP
+	url = https://github.com/lwip-tcpip/lwip.git

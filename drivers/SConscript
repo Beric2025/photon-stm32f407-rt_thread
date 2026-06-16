@@ -1,0 +1,15 @@
+#
+# Copyright (c) 2026 beric-xiong
+# SPDX-License-Identifier: MIT
+#
+# drivers/SConscript - Device drivers (motor, battery, sensor, network, etc.)
+#
+
+import os
+from building import *
+
+cwd = GetCurrentDir()
+src = Glob(os.path.join(cwd, '**', '*.c'))
+
+group = DefineGroup('Drivers', src, depend=[''])
+Return('group')

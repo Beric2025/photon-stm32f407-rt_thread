@@ -1,0 +1,30 @@
+#
+# Copyright (c) 2026 beric-xiong
+# SPDX-License-Identifier: MIT
+#
+# third_party/STM32F4xx_HAL_Driver/SConscript - STM32 HAL library
+#
+# Note: This compiles ALL HAL source files. To save flash space,
+# stm32f4xx_hal_conf.h (in port/stm32f407/system) disables unused
+# peripheral modules via #define HAL_XXX_MODULE_ENABLED.
+#
+
+import os
+from building import *
+
+cwd = GetCurrentDir()
+src = Glob(os.path.join(cwd, 'Src', '*.c'))
+
+# Exclude Legacy duplicate implementations
+legacy = os.path.join(cwd, 'Src', 'Legacy')
+for f in list(src):
+    if str(f).find(legacy) >= 0:
+        src.remove(f)
+
+CPPPATH = [
+    os.path.join(cwd, 'Inc'),
+    os.path.join(cwd, 'Inc', 'Legacy'),
+]
+
+group = DefineGroup('HAL', src, depend=[''], CPPPATH=CPPPATH)
+Return('group')

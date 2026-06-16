@@ -1,0 +1,55 @@
+#
+# Copyright (c) 2026 beric-xiong
+# SPDX-License-Identifier: MIT
+#
+# Top-level Kconfig for STM32F407 BSP
+#
+# Sources RT-Thread's kernel Kconfig, which provides all
+# kernel options (SMP, IPC, memory, finsh, etc.).
+#
+# Usage:
+#   cd <project_root>
+#   scons --menuconfig     # launches graphical menuconfig
+#
+
+mainmenu "RT-Thread STM32F407 Project Configuration"
+
+# ============================================================
+# BSP SOC selection — hidden, auto-enables required options
+# ============================================================
+config SOC_STM32F407ZG
+    bool
+    select RT_USING_COMPONENTS_INIT
+    select RT_USING_USER_MAIN
+    default y
+
+# ============================================================
+# Pull in the full RT-Thread kernel configuration tree
+# ============================================================
+source "$RTT_DIR/Kconfig"
+
+# ============================================================
+# Project-specific options
+# ============================================================
+menu "Project Configuration"
+
+    config PROJECT_LOG_PRINT_ENABLE
+        bool "Enable log print"
+        default y
+        help
+            Enable application-level log printing via log_print().
+
+    config PROJECT_USE_OS
+        bool "Enable RTOS integration"
+        default y
+        help
+            When enabled, drivers use RT-Thread critical sections
+            for thread-safe buffer access. Disable for bare-metal.
+
+    config PROJECT_BUILD_DRIVERS
+        bool "Build device drivers and application layers"
+        default y
+        help
+            Enable to build drivers/, app/, and interface/ modules.
+
+endmenu

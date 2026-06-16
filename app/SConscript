@@ -1,0 +1,16 @@
+#
+# Copyright (c) 2026 beric-xiong
+# SPDX-License-Identifier: MIT
+#
+# app/SConscript - Application layer
+#
+
+import os
+from building import *
+
+cwd = GetCurrentDir()
+src = Glob(os.path.join(cwd, 'app_core', 'Src', '*.c'))
+src += Glob(os.path.join(cwd, 'share', 'Src', '*.c'))
+
+group = DefineGroup('App', src, depend=[''])
+Return('group')

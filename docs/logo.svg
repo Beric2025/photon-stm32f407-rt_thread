@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#00D4AA" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#00D4AA" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.6"/>
+      <stop offset="40%" stop-color="#00D4AA" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#00997A" stop-opacity="1"/>
+    </radialGradient>
+    <style>
+      .bg { fill: #0F0F1A; }
+      .ring { fill: none; stroke: #00D4AA; stroke-width: 2; opacity: 0.3; }
+      .trace { stroke: #00D4AA; stroke-width: 4; stroke-linecap: round; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" class="bg"/>
+
+  <!-- Outer glow rings -->
+  <circle cx="226" cy="240" r="160" class="ring" stroke-width="1.5" opacity="0.12"/>
+  <circle cx="226" cy="240" r="130" class="ring" stroke-width="1" opacity="0.2"/>
+  <ellipse cx="226" cy="240" rx="100" ry="95" class="ring" stroke-width="1" opacity="0.25" stroke-dasharray="8 6"/>
+
+  <!-- Glow halo -->
+  <circle cx="226" cy="240" r="140" fill="url(#glow)" opacity="0.3"/>
+
+  <!-- Photon core -->
+  <circle cx="226" cy="240" r="55" fill="url(#core)" opacity="0.95"/>
+  <circle cx="226" cy="240" r="30" fill="#FFFFFF" opacity="0.15"/>
+
+  <!-- Light rays (4) -->
+  <line x1="226" y1="165" x2="226" y2="185" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+  <line x1="226" y1="295" x2="226" y2="315" stroke="#00D4AA" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <line x1="151" y1="240" x2="171" y2="240" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+  <line x1="281" y1="240" x2="301" y2="240" stroke="#00D4AA" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- PCB trace - abstract hardware layer -->
+  <polyline points="76,380 140,340 200,380 260,340 320,380 380,340 436,380" class="trace" opacity="0.6"/>
+
+  <!-- Trace nodes -->
+  <circle cx="140" cy="340" r="5" fill="#00D4AA" opacity="0.5"/>
+  <circle cx="200" cy="380" r="5" fill="#00D4AA" opacity="0.5"/>
+  <circle cx="260" cy="340" r="5" fill="#00D4AA" opacity="0.5"/>
+  <circle cx="320" cy="380" r="5" fill="#00D4AA" opacity="0.5"/>
+  <circle cx="380" cy="340" r="5" fill="#00D4AA" opacity="0.5"/>
+
+  <!-- Project name -->
+  <text x="256" y="460" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="72" font-weight="700" fill="#00D4AA" letter-spacing="8">PHOTON</text>
+</svg>

@@ -1,0 +1,15 @@
+#
+# Copyright (c) 2026 beric-xiong
+# SPDX-License-Identifier: MIT
+#
+# interface/SConscript - HAL peripheral abstraction layer
+#
+
+import os
+from building import *
+
+cwd = GetCurrentDir()
+src = Glob(os.path.join(cwd, '**', '*.c'))
+
+group = DefineGroup('Interface', src, depend=[''])
+Return('group')

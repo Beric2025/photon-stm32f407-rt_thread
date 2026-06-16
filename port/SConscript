@@ -1,0 +1,48 @@
+#
+# Copyright (c) 2026 beric-xiong
+# SPDX-License-Identifier: MIT
+#
+# port/SConscript - MCU BSP, lwIP port, RT-Thread board init
+#
+
+import os
+from building import *
+
+cwd = GetCurrentDir()
+objs = []
+
+# ============================================================
+# 1. STM32F407 system files (main, HAL config, interrupt handlers)
+# ============================================================
+system_src = Glob(os.path.join(cwd, 'stm32f407', 'system', '*.c'))
+
+# ============================================================
+# 2. STM32F407 BSP peripheral drivers
+# ============================================================
+bsp_src = Glob(os.path.join(cwd, 'stm32f407', 'bsp', '*.c'))
+
+# ============================================================
+# 3. RT-Thread board init
+# ============================================================
+rtthread_src = Glob(os.path.join(cwd, 'rtthread', '*.c'))
+
+# ============================================================
+# 4. lwIP port adaptation
+# ============================================================
+lwip_port_src = Glob(os.path.join(cwd, 'lwip', 'arch', '*.c'))
+lwip_port_src += Glob(os.path.join(cwd, 'lwip', 'common', '*.c'))
+
+# ============================================================
+# 5. Startup assembly
+# ============================================================
+startup_asm = Glob(os.path.join(cwd, 'stm32f407', 'startup', 'gcc', '*.s'))
+
+# ============================================================
+# Combine all sources
+# ============================================================
+all_src = system_src + bsp_src + rtthread_src + lwip_port_src + startup_asm
+
+group = DefineGroup('Port', all_src, depend=[''])
+objs.append(group)
+
+Return('objs')
