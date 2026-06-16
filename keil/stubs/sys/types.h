@@ -17,14 +17,24 @@
 #define __SYS_TYPES_H__
 
 #include <stdint.h>
+#include <limits.h>
 
 typedef int          pid_t;
 typedef unsigned int uid_t;
 typedef unsigned int gid_t;
 typedef unsigned int useconds_t;
 typedef long         off_t;
-typedef long         ssize_t;
 typedef unsigned int mode_t;
 typedef int          clockid_t;
+typedef long         suseconds_t;
+typedef unsigned int dev_t;
+
+/* ssize_t — guard against redefinition from lwIP's arch.h.
+ * lwIP checks SSIZE_MAX; if set it skips its own typedef. */
+#ifndef _SSIZE_T_DEFINED
+#define _SSIZE_T_DEFINED
+typedef int ssize_t;
+#endif
+#define SSIZE_MAX INT_MAX
 
 #endif /* __SYS_TYPES_H__ */
