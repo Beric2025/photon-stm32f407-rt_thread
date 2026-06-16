@@ -187,31 +187,6 @@ the VS Code terminal to run `scons`. You can also export VS Code configuration:
 scons --target=vsc         # Export VS Code config (includes include paths)
 ```
 
-### Keil MDK
-
-The Keil project is maintained under `keil/`:
-
-| File | Purpose |
-|---|---|
-| `keil/Photon.uvprojx` | **Main project** — open this in Keil MDK |
-| `keil/template.uvprojx` | MDK5 template for regeneration |
-| `keil/project.uvprojx` | Auto-generated reference (by `scons --target=mdk5`) |
-| `keil/stubs/` | POSIX stub headers for ARM Compiler |
-
-**Regenerate when `rtconfig.h` changes:**
-
-```bash
-cp keil/template.uvprojx .       # template must be at project root
-scons --target=mdk5              # generate project.uvprojx with updated config
-mv project.uvprojx keil/         # move into keil/
-# then diff keil/project.uvprojx against keil/Photon.uvprojx
-# and apply relevant changes (include paths, macros, new sources)
-```
-
-> **Note**: The auto-generated project only covers RT-Thread kernel components.
-> Project-specific sources (`port/`, `drivers/`, `app/`, `interface/`) and
-> include paths are maintained manually in `keil/Photon.uvprojx`.
-
 ## Porting to a New MCU
 
 1. Create `port/<your-mcu>/bsp/` with BSP implementations matching all required
@@ -241,7 +216,6 @@ See [docs/porting_guide.md](docs/porting_guide.md) for detailed instructions.
 | `third_party/STM32F4xx_HAL_Driver/` | STM32Cube F4 HAL drivers |
 | `third_party/CMSIS/` | CMSIS Core + Device headers |
 | `tools/` | Auxiliary scripts |
-| `keil/` | Keil MDK project files |
 | `docs/` | Documentation (porting guide, logo) |
 
 ## RT-Thread Shell (Finsh)
