@@ -180,9 +180,6 @@ openocd -f interface/stlink.cfg -f target/stm32f4x.cfg \
 
 ### IDE / VS Code
 
-Open the workspace file ([Photon.code-workspace](Photon.code-workspace)) and use
-the VS Code terminal to run `scons`. You can also export VS Code configuration:
-
 ```bash
 scons --target=vsc         # Export VS Code config (includes include paths)
 ```
