@@ -15,13 +15,16 @@
 #ifndef __FCNTL_H__
 #define __FCNTL_H__
 
-#define O_RDONLY    0
-#define O_WRONLY    1
-#define O_RDWR      2
-#define O_CREAT     0100
-#define O_TRUNC     01000
-#define O_APPEND    02000
-#define O_EXCL      0200
-#define O_ACCMODE   (O_RDONLY | O_WRONLY | O_RDWR)
+#define O_RDONLY      0
+#define O_WRONLY      1
+#define O_RDWR        2
+#define O_ACCMODE     (O_RDONLY | O_WRONLY | O_RDWR)
+#define O_CREAT       0100
+#define O_EXCL        0200
+#define O_TRUNC       01000
+#define O_APPEND      02000
+#define O_NONBLOCK    04000
+#define O_DIRECTORY   0x200000
+#define O_BINARY      0x10000
 
 #endif /* __FCNTL_H__ */
