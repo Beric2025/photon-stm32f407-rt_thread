@@ -25,7 +25,8 @@ sub_modules = [
     'app',
     'interface',
     os.path.join('third_party', 'STM32F4xx_HAL_Driver'),
-    os.path.join('third_party', 'lwIP'),
+    # lwIP is a git submodule without its own SConscript —
+    # its core sources are compiled by port/SConscript instead.
 ]
 
 for mod in sub_modules:
