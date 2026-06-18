@@ -5,8 +5,9 @@
 # SConstruct - RT-Thread build entry for STM32F407
 #
 # Usage:
-#   scons                    # build
-#   scons -j8                # parallel build
+#   scons                    # build debug version (default)
+#   scons BUILD=release      # build release version (alternative)
+#   scons -j8                # parallel build debug version (default)
 #   scons -c                 # clean
 #   scons --menuconfig       # graphical configuration
 #   scons --target=cmake     # export CMakeLists.txt

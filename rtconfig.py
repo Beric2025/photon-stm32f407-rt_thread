@@ -75,7 +75,8 @@ TARGET_EXT = 'elf'
 # ============================================================
 # Build type
 # ============================================================
-BUILD = 'debug'
+from SCons.Script import ARGUMENTS
+BUILD = ARGUMENTS.get('BUILD', 'debug')
 
 # ============================================================
 # MCU architecture flags (Cortex-M4F with FPU)
