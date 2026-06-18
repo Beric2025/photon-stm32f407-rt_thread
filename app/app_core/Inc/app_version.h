@@ -12,7 +12,7 @@
 
 /* Injected by SCons at build time; fallback for manual builds */
 #ifndef APP_VERSION
-#define APP_VERSION "v0.0.1-dev"
+#define APP_VERSION "v0.0.2-dev"
 #endif
 
 #ifdef APP_DIRTY

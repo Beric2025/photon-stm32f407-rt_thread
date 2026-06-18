@@ -85,7 +85,7 @@ DEVICE += ' -ffunction-sections -fdata-sections'
 
 CFLAGS  = DEVICE + ' -Wall -Wextra'
 AFLAGS  = ' -c' + DEVICE + ' -x assembler-with-cpp -Wa,-mimplicit-it=thumb '
-LFLAGS  = DEVICE + ' -Wl,--gc-sections,-Map=rtthread.map,-cref,-u,Reset_Handler'
+LFLAGS  = DEVICE + ' -Wl,--gc-sections,-Map=photon.map,-cref,-u,Reset_Handler'
 LFLAGS += ' -T port/stm32f407/STM32F407ZGTx_FLASH.ld'
 LFLAGS += ' --specs=nano.specs --specs=nosys.specs'
 
@@ -147,6 +147,6 @@ CPPDEFINES = [
 # ============================================================
 # Post-build actions
 # ============================================================
-POST_ACTION = OBJCPY + ' -O binary $TARGET rtthread.bin\n'
-POST_ACTION += OBJCPY + ' -O ihex  $TARGET rtthread.hex\n'
+POST_ACTION = OBJCPY + ' -O binary $TARGET photon.bin\n'
+POST_ACTION += OBJCPY + ' -O ihex  $TARGET photon.hex\n'
 POST_ACTION += SIZE + ' $TARGET \n'

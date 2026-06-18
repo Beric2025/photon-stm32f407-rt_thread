@@ -71,5 +71,5 @@ objs = PrepareBuilding(env, RTT_ROOT, has_libcpu=False)
 # DoBuilding handles Program creation, POST_ACTION (.bin/.hex/.dis),
 # and all other post-build steps (dist, IDE export, cscope, etc.)
 # ============================================================
-TARGET = 'rtthread.elf'
+TARGET = 'photon.elf'
 DoBuilding(TARGET, objs)
